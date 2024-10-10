@@ -24,7 +24,7 @@ def generate_qr_code(request):
     qr.save(stream)
     return HttpResponse(stream.getvalue(), content_type="image/png")
 
-@login_required
+# Remove @login_required to allow access without logging in
 def submit_form(request):
     questions = Question.objects.all()
     
@@ -35,7 +35,7 @@ def submit_form(request):
             for question in questions:
                 answer_text = form.cleaned_data.get(f'question_{question.id}', '')
                 Answer.objects.create(response=response, question=question, answer_text=answer_text)
-            return redirect('dashboard')
+            return redirect('thank_you')  # Redirect to a 'thank you' page after submission
     else:
         form = ResponseForm()
 
