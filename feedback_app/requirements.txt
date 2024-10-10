@@ -1,4 +1,5 @@
-Django>=3.2
+Django
 qrcode[pil]
 xhtml2pdf
 pillow
+
