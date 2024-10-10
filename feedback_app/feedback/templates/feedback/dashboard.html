@@ -1,0 +1,28 @@
+{% extends 'feedback/base.html' %}
+
+{% block content %}
+    <h2>Dashboard</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>School</th>
+                <th>Date</th>
+                <th>PDF</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for response in responses %}
+                <tr>
+                    <td>{{ response.name }}</td>
+                    <td>{{ response.surname }}</td>
+                    <td>{{ response.school }}</td>
+                    <td>{{ response.date }}</td>
+                    <td><a href="{% url 'download_pdf' response.id %}">Download PDF</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'generate_qr' %}" class="btn btn-primary">Generate QR Code</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Response PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        .details, .answers {
+            margin: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .details p, .answers p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ response.name }}'s Response</h2>
+    <div class="details">
+        <p><strong>Name:</strong> {{ response.name }}</p>
+        <p><strong>Surname:</strong> {{ response.surname }}</p>
+        <p><strong>School:</strong> {{ response.school }}</p>
+        <p><strong>Date:</strong> {{ response.date }}</p>
+    </div>
+
+    <div class="answers">
+        <h3>Answers</h3>
+        {% for answer in answers %}
+            <p><strong>{{ answer.question.text }}:</strong> {{ answer.answer_text }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
