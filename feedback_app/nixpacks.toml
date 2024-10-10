@@ -1,0 +1,12 @@
+# nixpacks.toml
+version = "1.0"
+
+[build]
+  # Specify the language
+  language = "python"
+
+[python]
+  # Specify the python version
+  version = "3.10"
+
+# Add any additional configurations as needed
