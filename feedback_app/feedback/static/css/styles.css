@@ -1,0 +1,33 @@
+/* Custom styling for the login form */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-body h2 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+    height: 45px;
+    font-size: 16px;
+}
+
+.btn-block {
+    background-color: #0A5199; /* Use the same blue color as in the image */
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-block:hover {
+    background-color: #063e73; /* Darker blue on hover */
+}
+
+img {
+    margin-bottom: 20px;
+}
