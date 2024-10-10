@@ -27,7 +27,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure--5ve6f0k=u%za+98#0y56
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'  # Set DEBUG via environment variable
 
 # Update ALLOWED_HOSTS to include your Railway app URL
-ALLOWED_HOSTS = ['your-project-name.railway.app']  # Replace with your actual Railway app URL
+ALLOWED_HOSTS = ['shadowerreview.onrender.com', '127.0.0.1', 'localhost']
+ # Replace with your actual Railway app URL
 
 
 # Application definition
