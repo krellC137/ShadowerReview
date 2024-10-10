@@ -9,7 +9,7 @@
     <h3>Answers</h3>
     <ul>
         {% for answer in answers %}
-            <li><strong>{{ answer.question.text }}:</strong> {{ answer.answer_text }}</li>
+            <li><strong>{{ answer.question.question_text }}:</strong> {{ answer.answer_text }}</li>
         {% endfor %}
     </ul>
     
