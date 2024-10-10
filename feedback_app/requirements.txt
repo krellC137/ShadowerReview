@@ -1,5 +1,5 @@
-Django
+Django==5.1.2
 qrcode[pil]
 xhtml2pdf
 pillow
-
+daphne

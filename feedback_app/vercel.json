@@ -1,15 +1,14 @@
 {
-    "builds": [
+  "builds": [
       {
-        "src": "manage.py",
-        "use": "@vercel/python"
+          "src": "asgi.py",
+          "use": "@vercel/python"
       }
-    ],
-    "routes": [
+  ],
+  "routes": [
       {
-        "src": "/(.*)",
-        "dest": "manage.py"
+          "src": "/(.*)",
+          "dest": "asgi.py"
       }
-    ]
-  }
-  
+  ]
+}
