@@ -1,0 +1,17 @@
+{% extends 'feedback/base.html' %}
+
+{% block content %}
+    <h2>Response Details</h2>
+    <p><strong>Name:</strong> {{ response.name }}</p>
+    <p><strong>Surname:</strong> {{ response.surname }}</p>
+    <p><strong>Date:</strong> {{ response.date }}</p>
+
+    <h3>Answers</h3>
+    <ul>
+        {% for answer in answers %}
+            <li><strong>{{ answer.question.text }}:</strong> {{ answer.answer_text }}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'dashboard' %}" class="btn btn-primary">Back to Dashboard</a>
+{% endblock %}

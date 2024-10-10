@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse  # For dynamic URL generation
 from .models import Question, Response, Answer
@@ -16,7 +16,6 @@ def dashboard(request):
 
 @login_required
 def generate_qr_code(request):
-    # Use Django's reverse function to dynamically generate the form URL
     form_url = request.build_absolute_uri(reverse('submit_form'))
     
     qr = make(form_url)
@@ -35,7 +34,7 @@ def submit_form(request):
             for question in questions:
                 answer_text = form.cleaned_data.get(f'question_{question.id}', '')
                 Answer.objects.create(response=response, question=question, answer_text=answer_text)
-            return redirect('thank_you')  # Redirect to the thank you page after submission
+            return redirect('thank_you')
     else:
         form = ResponseForm()
 
@@ -73,6 +72,19 @@ def download_pdf(request, response_id):
 
     return response_pdf
 
+@login_required
+def view_response(request, response_id):
+    response = get_object_or_404(Response, id=response_id)
+    answers = Answer.objects.filter(response=response)
+    return render(request, 'feedback/view_response.html', {'response': response, 'answers': answers})
+
+@login_required
+def delete_response(request, response_id):
+    response = get_object_or_404(Response, id=response_id)
+    response.delete()
+    return redirect('dashboard')  # Redirect to dashboard after deletion
+
 # New thank_you view
 def thank_you(request):
     return render(request, 'feedback/thank_you.html')
+#krell

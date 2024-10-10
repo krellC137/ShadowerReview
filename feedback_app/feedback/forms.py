@@ -4,7 +4,7 @@ from .models import Response, Answer, Question
 class ResponseForm(forms.ModelForm):
     class Meta:
         model = Response
-        fields = ['name', 'surname', 'school']
+        fields = ['name', 'surname']
 
     # Dynamically add fields for each question
     def __init__(self, *args, **kwargs):

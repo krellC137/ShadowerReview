@@ -9,7 +9,7 @@ class Question(models.Model):
 class Response(models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    school = models.CharField(max_length=100)
+    # school = models.CharField(max_length=100)
     date = models.DateField(auto_now_add=True)
     # Store responses to each question
     answers = models.ManyToManyField(Question, through='Answer')
