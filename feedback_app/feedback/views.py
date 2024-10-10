@@ -35,7 +35,7 @@ def submit_form(request):
             for question in questions:
                 answer_text = form.cleaned_data.get(f'question_{question.id}', '')
                 Answer.objects.create(response=response, question=question, answer_text=answer_text)
-            return redirect('thank_you')  # Redirect to a 'thank you' page after submission
+            return redirect('thank_you')  # Redirect to the thank you page after submission
     else:
         form = ResponseForm()
 
@@ -72,3 +72,7 @@ def download_pdf(request, response_id):
         return HttpResponse('Error generating PDF', status=500)
 
     return response_pdf
+
+# New thank_you view
+def thank_you(request):
+    return render(request, 'feedback/thank_you.html')

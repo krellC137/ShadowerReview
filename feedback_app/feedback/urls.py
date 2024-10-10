@@ -7,4 +7,5 @@ urlpatterns = [
     path('form/', views.submit_form, name='submit_form'),
     path('update_questions/', views.update_questions, name='update_questions'),
     path('download_pdf/<int:response_id>/', views.download_pdf, name='download_pdf'),
+    path('thank_you/', views.thank_you, name='thank_you'),  # Added URL for thank you page
 ]
