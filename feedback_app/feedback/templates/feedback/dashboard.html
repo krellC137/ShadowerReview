@@ -7,7 +7,7 @@
             <tr>
                 <th>Name</th>
                 <th>Surname</th>
-                <th>School</th>
+                {% comment %} <th>School</th> {% endcomment %}
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{ response.name }}</td>
                     <td>{{ response.surname }}</td>
-                    <td>{{ response.school }}</td>
+                    {% comment %} <td>{{ response.school }}</td> {% endcomment %}
                     <td>{{ response.date }}</td>
                     <td>
                         <a href="{% url 'view_response' response.id %}" class="btn btn-info btn-sm">View</a>
