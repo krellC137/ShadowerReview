@@ -65,4 +65,5 @@ xhtml2pdf==0.2.16
 zope.interface==7.0.3
 zopfli==0.2.3
 dj-database-url
-gunicorn 
+gunicorn
+whitenoise
