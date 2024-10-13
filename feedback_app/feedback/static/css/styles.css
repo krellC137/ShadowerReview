@@ -1,6 +1,6 @@
 /* General page styling */
 body {
-    background-color: #f4f6f9;
+    background-color: #f4f6f9; /* Default background color for general pages */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -13,7 +13,8 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background-color: #008000; /* Green background for this specific form page */
+    width: 100vw; /* Ensure full width */
 }
 
 /* Card styling */
@@ -78,6 +79,13 @@ input[type="text"]:focus, textarea:focus, select:focus {
 .btn-block:hover {
     background-color: #063e73;
     transform: translateY(-3px);
+}
+
+/* Background styling for specific pages */
+.background-gradient {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6); /* Gradient background for other form pages */
+    min-height: 100vh;
+    padding: 20px;
 }
 
 /* Mobile responsiveness */
