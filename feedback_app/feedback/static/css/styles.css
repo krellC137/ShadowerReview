@@ -110,3 +110,58 @@ input[type="text"]:focus, textarea:focus, select:focus {
         padding: 10px;
     }
 }
+/* Thank You page specific styling */
+.thank-you-body {
+    background-color: #23a059; /* Background color for the entire page */
+    height: 100vh;  /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.thank-you-card {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+}
+
+.thank-you-card h1 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.thank-you-card p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.thank-you-card .btn-block {
+    background-color: #23a059;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.thank-you-card .btn-block:hover {
+    background-color: #1c8448;
+    transform: translateY(-3px);
+}
