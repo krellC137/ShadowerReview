@@ -13,7 +13,8 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: linear-gradient(135deg, #a2d5ab, #23a059);
+
 }
 
 /* Card styling */
@@ -22,7 +23,7 @@ body {
     width: 100%;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.26);
     padding: 30px;
     margin: 20px;
     transition: transform 0.3s ease;
@@ -41,30 +42,38 @@ body {
     text-align: center;
 }
 
-/* Form Group styling */
-.form-group {
-    margin-bottom: 20px;
+/* Subheading styling */
+.card-body h3 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 15px;
 }
 
-/* Input and Textarea styling */
-input[type="text"], textarea, select {
-    width: 100%;
+/* Response details styling */
+.response-details p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #444;
+}
+
+/* Answers list styling */
+.answers-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.answers-list li {
+    background-color: #f0f0f0;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
     font-size: 16px;
-    box-sizing: border-box;
-    transition: border 0.3s ease;
-}
-
-input[type="text"]:focus, textarea:focus, select:focus {
-    border-color: #0A5199;
-    outline: none;
 }
 
 /* Button styling */
 .btn-block {
-    background-color: #0A5199;
+    background-color: #23a059;
     color: #fff;
     border: none;
     font-size: 18px;
@@ -72,11 +81,13 @@ input[type="text"]:focus, textarea:focus, select:focus {
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
+    text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
 }
 
 .btn-block:hover {
-    background-color: #063e73;
+    background-color: #1c8448;
     transform: translateY(-3px);
 }
 
