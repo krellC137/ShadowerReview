@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse  # For dynamic URL generation
+from django.contrib.auth import logout  # To handle logout
 from .models import Question, Response, Answer
 from .forms import ResponseForm, QuestionForm
 from qrcode import make  # To generate QR code
@@ -87,4 +88,9 @@ def delete_response(request, response_id):
 # New thank_you view
 def thank_you(request):
     return render(request, 'feedback/thank_you.html')
+
+# Logout view
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redirect to login page after logout
 #krell
