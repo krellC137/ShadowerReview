@@ -1,13 +1,12 @@
 {% extends 'feedback/base.html' %}
 
 {% block content %}
-    <h2>Dashboard</h2>
+    <h2>Responses</h2>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Surname</th>
-                {% comment %} <th>School</th> {% endcomment %}
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
@@ -17,7 +16,6 @@
                 <tr>
                     <td>{{ response.name }}</td>
                     <td>{{ response.surname }}</td>
-                    {% comment %} <td>{{ response.school }}</td> {% endcomment %}
                     <td>{{ response.date }}</td>
                     <td>
                         <a href="{% url 'view_response' response.id %}" class="btn btn-info btn-sm">View</a>
@@ -30,5 +28,7 @@
             {% endfor %}
         </tbody>
     </table>
+
     <a href="{% url 'generate_qr' %}" class="btn btn-primary">Generate QR Code</a>
+    <a href="{% url 'question_list' %}" class="btn btn-secondary">Questions</a>
 {% endblock %}

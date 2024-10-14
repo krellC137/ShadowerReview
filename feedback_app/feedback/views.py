@@ -53,25 +53,39 @@ def update_questions(request):
     return render(request, 'feedback/update_questions.html', {'form': form})
 
 @login_required
-def download_pdf(request, response_id):
-    response = Response.objects.get(id=response_id)
-    answers = Answer.objects.filter(response=response)
-    
-    # Render template to HTML string
-    html_string = render_to_string('feedback/pdf_template.html', {'response': response, 'answers': answers})
+def question_list(request):
+    questions = Question.objects.all()
+    return render(request, 'feedback/question_list.html', {'questions': questions})
 
-    # Generate PDF using xhtml2pdf
-    response_pdf = HttpResponse(content_type='application/pdf')
-    response_pdf['Content-Disposition'] = f'attachment; filename="{response.name}_{response.surname}_response.pdf"'
+@login_required
+def edit_question(request, question_id):
+    question = get_object_or_404(Question, id=question_id)
+    if request.method == 'POST':
+        form = QuestionForm(request.POST, instance=question)
+        if form.is_valid():
+            form.save()
+            return redirect('question_list')
+    else:
+        form = QuestionForm(instance=question)
+    return render(request, 'feedback/edit_question.html', {'form': form})
 
-    # Convert HTML to PDF
-    pisa_status = pisa.CreatePDF(html_string, dest=response_pdf)
+@login_required
+def delete_question(request, question_id):
+    question = get_object_or_404(Question, id=question_id)
+    question.delete()
+    return redirect('question_list')
 
-    # If error, show an error message
-    if pisa_status.err:
-        return HttpResponse('Error generating PDF', status=500)
+@login_required
+def add_question(request):
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('question_list')
+    else:
+        form = QuestionForm()
+    return render(request, 'feedback/add_question.html', {'form': form})
 
-    return response_pdf
 
 @login_required
 def view_response(request, response_id):
