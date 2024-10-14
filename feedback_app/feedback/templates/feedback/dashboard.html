@@ -29,6 +29,41 @@
         </tbody>
     </table>
 
-    <a href="{% url 'generate_qr' %}" class="btn btn-primary">Generate QR Code</a>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#qrModal" onclick="fetchQRCode()">Generate QR Code</button>
     <a href="{% url 'question_list' %}" class="btn btn-secondary">Questions</a>
+
+    <!-- QR Code Modal -->
+    <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel">Generated QR Code</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center" id="qrCodeContainer">
+                    <p>QR Code will be displayed here</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fetchQRCode() {
+            fetch("{% url 'generate_qr_code' %}")
+            .then(response => response.json())
+            .then(data => {
+                if (data.qr_code) {
+                    document.getElementById('qrCodeContainer').innerHTML = '<img src="data:image/png;base64,' + data.qr_code + '" alt="QR Code" class="img-fluid">';
+                } else {
+                    document.getElementById('qrCodeContainer').innerHTML = '<p>QR Code generation failed</p>';
+                }
+            })
+            .catch(error => {
+                document.getElementById('qrCodeContainer').innerHTML = '<p>Error fetching QR Code</p>';
+            });
+        }
+    </script>
 {% endblock %}

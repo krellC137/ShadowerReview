@@ -9,6 +9,8 @@ from io import BytesIO
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from xhtml2pdf import pisa  # For PDF generation
+import base64
+from django.http import JsonResponse
 
 @login_required
 def dashboard(request):
@@ -19,10 +21,17 @@ def dashboard(request):
 def generate_qr_code(request):
     form_url = request.build_absolute_uri(reverse('submit_form'))
     
+    # Generate the QR code
     qr = make(form_url)
     stream = BytesIO()
     qr.save(stream)
-    return HttpResponse(stream.getvalue(), content_type="image/png")
+    qr_data = stream.getvalue()
+
+    # Encode the QR code as base64 so it can be rendered in an img tag
+    qr_base64 = base64.b64encode(qr_data).decode('utf-8')
+
+    return JsonResponse({'qr_code': qr_base64})
+
 
 # Remove @login_required to allow access without logging in
 def submit_form(request):
