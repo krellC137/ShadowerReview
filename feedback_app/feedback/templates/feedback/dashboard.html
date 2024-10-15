@@ -18,10 +18,14 @@
                     <td>{{ response.surname }}</td>
                     <td>{{ response.date }}</td>
                     <td>
-                        <a href="{% url 'view_response' response.id %}" class="btn btn-info btn-sm">View</a>
+                        <a href="{% url 'view_response' response.id %}" class="btn btn-sm">
+                            <i class="bi bi-eye"></i>
+                        </a>
                         <form action="{% url 'delete_response' response.id %}" method="post" style="display:inline;">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this response?');">Delete</button>
+                            <button type="submit" class="btn btn-sm" onclick="return confirm('Are you sure you want to delete this response?');">
+                                <i class="bi bi-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
