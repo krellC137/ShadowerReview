@@ -1,36 +1,48 @@
-{% extends 'feedback/base.html' %}
-{% load static %}
-
-{% block navbar %}
+{% extends 'feedback/base.html' %} {% load static %} {% block navbar %}
 <!-- Override the navbar block to hide the navbar on the login page -->
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-4 mt-5">
-        <!-- Logo at the top -->
-        <div class="text-center mb-4">
-            <img src="{% static 'images/snipped.png' %}" alt="Logo" class="img-fluid" style="max-width: 100px;">
-        </div>
-        
-        <!-- Login Form -->
-        <div class="card">
-            <div class="card-body">
-                <h2 class="text-center mb-4">Login</h2>
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="form-group mb-3">
-                        <label for="username">Email or Username</label>
-                        <input type="text" name="username" id="username" class="form-control" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn-block">Login</button>
-                </form>
-            </div>
-        </div>
+  <div class="col-md-4 mt-5">
+    <!-- Logo at the top -->
+    <div class="text-center mb-4">
+      <img
+        src="{% static 'images/snipped.png' %}"
+        alt="Logo"
+        class="img-fluid"
+        style="max-width: 100px"
+      />
     </div>
+
+    <!-- Login Form -->
+    <div class="card">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Login</h2>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group mb-3">
+            <label for="username">Email or Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-block">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
