@@ -23,8 +23,8 @@
   <body>
     <div class="container">
       {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-light rounded" style="background-color: #23a059;">
-        <a class="navbar-brand ms-2" href="#"> WIRK Shadowers </a>
+      <nav class="navbar navbar-expand-lg navbar-light rounded" style="background-color: #23a059;">
+        <a class="navbar-brand ms-2" href="{% url 'dashboard' %}">WIRK Shadowers</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -37,11 +37,11 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ms-auto">
             {% if user.is_authenticated %}
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
-            </li>
+            </li> {% endcomment %}
             <li class="nav-item">
               <form
                 method="POST"
