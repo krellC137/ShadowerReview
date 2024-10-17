@@ -6,6 +6,10 @@ body {
     padding: 0;
 }
 
+.custom-navbar {
+    background-color: #23a059;
+  }
+  
 /* Form container styling */
 .form-container {
     display: flex;
